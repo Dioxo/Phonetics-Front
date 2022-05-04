@@ -4,10 +4,13 @@ import ReactDOM from "react-dom";
 import "./index.scss";
 import "react-toastify/dist/ReactToastify.min.css";
 import { AppContainer } from "./view/common/AppContainer";
+import { AudioRecorder } from "./view/components/AudioRecorder/AudioRecorder";
 
 function App() {
 	return (
-		<AppContainer endpoints={window.config.endpoints}>React Template</AppContainer>
+		<AppContainer endpoints={window.config.endpoints}>
+			<AudioRecorder />
+		</AppContainer>
 	);
 }
 

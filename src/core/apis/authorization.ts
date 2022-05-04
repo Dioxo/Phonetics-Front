@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { inject } from "inversify";
 import { DiKeysService } from "../di/services/di.keys.service";
 import { LocalStorageService } from "../services/localStorage.service";

@@ -8,7 +8,9 @@ import { ToastContainer } from "react-toastify";
 import { Provider as DiProvider } from "inversify-react";
 
 export type AppProps = {
-	endpoints: {};
+	endpoints: {
+		prosodyApi: string;
+	};
 	// Theme de l'application
 	theme?: Theme;
 };

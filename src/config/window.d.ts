@@ -1,5 +1,7 @@
 export type Config = {
-	endpoints: {};
+	endpoints: {
+		prosodyApi: string;
+	};
 };
 
 declare global {

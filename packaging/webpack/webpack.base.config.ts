@@ -33,6 +33,7 @@ export const baseConfig: Configuration = {
             arrowFunction: false,
             const: false,
         },
+        publicPath: '/'
     },
     resolve: {
         extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
@@ -67,6 +68,9 @@ export const baseConfig: Configuration = {
                 type: 'asset/inline',
             },
         ],
+    },
+    devServer: {
+        historyApiFallback: true,
     },
     plugins: [
         new ForkTsCheckerWebpackPlugin({

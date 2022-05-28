@@ -1,16 +1,45 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import AppBar from "@mui/material/AppBar";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+import { Outlet } from "react-router-dom";
+import { useAppDispatch } from "../../../store";
+import { push } from "redux-first-history";
 
 export const Welcome = () => {
+	const [value, setValue] = React.useState(0);
+	const dispatch = useAppDispatch();
+
+	const handleChange = (_: React.SyntheticEvent, newValue: number) => {
+		setValue(newValue);
+	};
+
 	return (
 		<div>
 			<h1>Let's improve your english pronunciation!</h1>
-			<Link to="/explanations">
-				<button>Sentences with video explanations</button>
-			</Link>
-            <Link to="/exercices">
-                <button>Exercices</button>
-            </Link>
+			<Box>
+				<AppBar position="static">
+					<Tabs
+						value={value}
+						onChange={handleChange}
+						indicatorColor="secondary"
+						textColor="inherit"
+						variant="fullWidth"
+						aria-label="full width tabs example"
+					>
+						<Tab
+							onClick={() => dispatch(push("/explanations"))}
+							label="Explanations"
+						/>
+						<Tab
+							onClick={() => dispatch(push("/exercices"))}
+							label="Exercices"
+						/>
+					</Tabs>
+				</AppBar>
+			</Box>
+			<Outlet />
 		</div>
 	);
 };

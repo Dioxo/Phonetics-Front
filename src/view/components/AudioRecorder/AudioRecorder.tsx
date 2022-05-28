@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../../store";
 import { getProsody } from "../../../store/module/prosody/prosody.actions";
 
-export const AudioRecorder = () => {
-	const image = useAppSelector((state) => state.prosodyReducer.imgResult);
+export const AudioRecorder = ({ exerciceNumber }) => {
+	const images = useAppSelector((state) => state.prosodyReducer.imgResult);
 	const dispatch = useDispatch();
 
 	let rec: MediaRecorder | null = null;
@@ -17,7 +17,9 @@ export const AudioRecorder = () => {
 		rec.ondataavailable = (e) => {
 			audioChunks.push(e.data);
 			if (rec?.state === "inactive") {
-				dispatch(getProsody(new Blob(audioChunks)));
+				dispatch(
+					getProsody({ exerciceNumber, audioBlob: new Blob(audioChunks) })
+				);
 			}
 		};
 		rec.start();
@@ -33,7 +35,11 @@ export const AudioRecorder = () => {
 			>
 				Stop Recording
 			</button>
-			<div>{image && <img src={image} alt="audio image" />}</div>
+			<div>
+				{images[exerciceNumber] && (
+					<img src={images[exerciceNumber]} alt="audio image" />
+				)}
+			</div>
 		</div>
 	);
 };

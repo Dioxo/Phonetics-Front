@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Link from "../../common/Link";
 
 export const Categorie = () => {
 	const categories = [
@@ -10,13 +11,15 @@ export const Categorie = () => {
 			exercices: [
 				{
 					caption: "Also the slow tomato is a hero",
-                    audio: "https://preprod.julien-giraud.fr/anglais/1-Also-the-tomato.ogg",
-					picture: "https://preprod.julien-giraud.fr/anglais/1-Also-the-tomato.png"
+					audio: "https://preprod.julien-giraud.fr/anglais/1-Also-the-tomato.ogg",
+					picture:
+						"https://preprod.julien-giraud.fr/anglais/1-Also-the-tomato.png",
 				},
 				{
 					caption: "Go to the window, I'll know about the capuccino",
-                    audio: "https://preprod.julien-giraud.fr/anglais/1-Go-to-the-window.ogg",
-					picture: "https://preprod.julien-giraud.fr/anglais/1-Go-to-the-window.png"
+					audio: "https://preprod.julien-giraud.fr/anglais/1-Go-to-the-window.ogg",
+					picture:
+						"https://preprod.julien-giraud.fr/anglais/1-Go-to-the-window.png",
 				},
 			],
 		},
@@ -27,18 +30,21 @@ export const Categorie = () => {
 			exercices: [
 				{
 					caption: "China is a big country",
-                    audio: "https://preprod.julien-giraud.fr/anglais/2-china-is-a-big.ogg",
-					picture: "https://preprod.julien-giraud.fr/anglais/2-china-is-a-big.png"
+					audio: "https://preprod.julien-giraud.fr/anglais/2-china-is-a-big.ogg",
+					picture:
+						"https://preprod.julien-giraud.fr/anglais/2-china-is-a-big.png",
 				},
 				{
 					caption: "Low and order",
-                    audio: "https://preprod.julien-giraud.fr/anglais/2-low-and-order.ogg",
-					picture: "https://preprod.julien-giraud.fr/anglais/2-low-and-order.png"
+					audio: "https://preprod.julien-giraud.fr/anglais/2-low-and-order.ogg",
+					picture:
+						"https://preprod.julien-giraud.fr/anglais/2-low-and-order.png",
 				},
 				{
 					caption: "My mother's bird was murdered",
-                    audio: "https://preprod.julien-giraud.fr/anglais/2-My-mother_ss-bird.ogg",
-					picture: "https://preprod.julien-giraud.fr/anglais/2-My-mother_ss-bird.png"
+					audio: "https://preprod.julien-giraud.fr/anglais/2-My-mother_ss-bird.ogg",
+					picture:
+						"https://preprod.julien-giraud.fr/anglais/2-My-mother_ss-bird.png",
 				},
 			],
 		},
@@ -49,13 +55,13 @@ export const Categorie = () => {
 			exercices: [
 				{
 					caption: "The lack, the nack, it's a hack, the sack",
-                    audio: "https://preprod.julien-giraud.fr/anglais/3-The-lack.ogg",
-					picture: "https://preprod.julien-giraud.fr/anglais/3-The-lack.png"
+					audio: "https://preprod.julien-giraud.fr/anglais/3-The-lack.ogg",
+					picture: "https://preprod.julien-giraud.fr/anglais/3-The-lack.png",
 				},
 				{
 					caption: "Zlack was back and his black cat was in the flack",
-                    audio: "https://preprod.julien-giraud.fr/anglais/3-Zack-blak.ogg",
-					picture: "https://preprod.julien-giraud.fr/anglais/3-Zack-blak.png"
+					audio: "https://preprod.julien-giraud.fr/anglais/3-Zack-blak.ogg",
+					picture: "https://preprod.julien-giraud.fr/anglais/3-Zack-blak.png",
 				},
 			],
 		},
@@ -66,8 +72,9 @@ export const Categorie = () => {
 			exercices: [
 				{
 					caption: "Attitude, fatter",
-                    audio: "https://preprod.julien-giraud.fr/anglais/4-Attitude-fatter.mp3",
-					picture: "https://preprod.julien-giraud.fr/anglais/4-Attitude-fatter.png"
+					audio: "https://preprod.julien-giraud.fr/anglais/4-Attitude-fatter.mp3",
+					picture:
+						"https://preprod.julien-giraud.fr/anglais/4-Attitude-fatter.png",
 				},
 			],
 		},
@@ -78,8 +85,9 @@ export const Categorie = () => {
 			exercices: [
 				{
 					caption: "Ask, fast, after",
-                    audio: "https://preprod.julien-giraud.fr/anglais/5-Ask-fast-after.mp3",
-					picture: "https://preprod.julien-giraud.fr/anglais/5-Ask-fast-after.png"
+					audio: "https://preprod.julien-giraud.fr/anglais/5-Ask-fast-after.mp3",
+					picture:
+						"https://preprod.julien-giraud.fr/anglais/5-Ask-fast-after.png",
 				},
 			],
 		},
@@ -90,8 +98,9 @@ export const Categorie = () => {
 			exercices: [
 				{
 					caption: "Today the water was a bit slow",
-                    audio: "https://preprod.julien-giraud.fr/anglais/6-today-the-water.ogg",
-					picture: "https://preprod.julien-giraud.fr/anglais/6-today-the-water.png"
+					audio: "https://preprod.julien-giraud.fr/anglais/6-today-the-water.ogg",
+					picture:
+						"https://preprod.julien-giraud.fr/anglais/6-today-the-water.png",
 				},
 			],
 		},
@@ -101,18 +110,21 @@ export const Categorie = () => {
 	const categorie = categories.filter((c) => c.id.toString() === id)[0];
 
 	return (
-		<div>
+		<div
+			style={{
+				display: "flex",
+				gap: "1rem",
+				flexDirection: "column",
+				alignItems: "center",
+			}}
+		>
 			<h1>
 				Short videos – {id}) {categorie.name}
 			</h1>
-			<div>
-				<video controls width="100%">
-					<source src={categorie.video} type="video/mp4" />
-				</video>
-			</div>
-			<Link to={"/exercices-" + id}>
-				<button>Record yourself with some excercices</button>
-			</Link>
+			<video controls width="60%">
+				<source src={categorie.video} type="video/mp4" />
+			</video>
+			<Link to={"/exercice/" + id} text="Record yourself with some excercices" />
 		</div>
 	);
 };

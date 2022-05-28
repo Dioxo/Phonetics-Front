@@ -1,11 +1,20 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Helper } from "../core/utils/helper";
 import { Container } from "inversify";
 import { prosodyReducer } from "./module/prosody/prosody.reducer";
 
+import { combineReducers } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
+import { createReduxHistoryContext } from "redux-first-history";
+import { createBrowserHistory } from "history";
+
+const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext(
+	{ history: createBrowserHistory() }
+);
+
 const reducer = combineReducers({
 	prosodyReducer,
+	router: routerReducer,
 });
 
 const store = configureStore({
@@ -26,6 +35,9 @@ export function createAppStore(container: Container) {
 		reducer: reducer,
 		middleware: (getDefaultMiddleware) => [
 			...getDefaultMiddleware({ thunk: { extraArgument: { container } } }),
+			routerMiddleware,
 		],
 	});
 }
+
+export const history = createReduxHistory(store);

@@ -1,5 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "../../common/Link";
+import { push } from "redux-first-history";
+import { useAppDispatch } from "../../../store";
 
 export const Exercices = () => {
 	const categories = [
@@ -35,15 +37,15 @@ export const Exercices = () => {
 		},
 	];
 
+	const dispatch = useAppDispatch();
+
 	return (
 		<div>
 			<h1>Choose your exercices categorie 👇</h1>
 			<ul>
 				{categories.map((categorie) => (
 					<li key={categorie.id}>
-						<Link to={"/exercices-" + categorie.id}> {/* TODO Alex remplacer "-" par "/" */}
-							<p>{categorie.name}</p>
-						</Link>
+						<Link to={"/exercice/" + categorie.id} text={categorie.name} />
 					</li>
 				))}
 			</ul>

@@ -3,14 +3,14 @@ import { createTheme } from "@mui/material";
 export const theme = createTheme({
 	palette: {
 		primary: {
-			main: "#85BE55",
+			main: "rgb(0, 127, 255)",
 			contrastText: "#FFF",
 		},
 		secondary: {
-			main: "#7986cb",
+			main: "#FF5F00",
 		},
 		error: {
-			main: "#ff4400",
+			main: "rgb(255, 0 ,0)",
 		},
 		contrastThreshold: 3,
 		tonalOffset: 0.2,

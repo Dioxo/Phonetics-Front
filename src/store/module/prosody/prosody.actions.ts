@@ -22,13 +22,17 @@ const blobToBase64 = (blob: Blob): Promise<string> => {
 
 export const getProsody = createAsyncThunk(
 	"prosody/getProsodyFromAudio",
-	async (audioBlob: Blob, { extra }) => {
+	async (
+		{ exerciceNumber, audioBlob }: { exerciceNumber: number; audioBlob: Blob },
+		{ extra }
+	) => {
 		const { container } = extra as ExtraTrunkParams;
 		const service = container.get(ProsodyService);
 		console.log(service);
-		const promise = blobToBase64(audioBlob).then((audio) =>
-			service.getProsody(audio)
-		);
+		const promise = blobToBase64(audioBlob).then(async (audio) => ({
+			img: await service.getProsody(audio),
+			exerciceNumber,
+		}));
 		return toast.promise(promise, {
 			error: "Error while querying prosody service with audio",
 			pending: "Getting audio prosody",

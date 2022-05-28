@@ -31,7 +31,10 @@ let build = async () => {
 };
 
 let standalone = async () => {
-	console.log("Bundling the application as a standalone app with the following options:", options);
+	console.log(
+		"Bundling the application as a standalone app with the following options:",
+		options
+	);
 	await ensureDir(options.folders.build);
 	await new Promise<void>((resolve, reject) => {
 		const compiler = webpack(webpackStandaloneConfig);
@@ -47,13 +50,19 @@ let standalone = async () => {
 		});
 	});
 
-	await copy(options.folders.public, options.folders.build, { overwrite: false, recursive: true });
+	await copy(options.folders.public, options.folders.build, {
+		overwrite: false,
+		recursive: true,
+	});
 };
 
 const startDev = () => {
 	console.log("start", options);
 
-	const server = new WebpackServer({ ...webpackDevConfig.devServer }, webpack(webpackDevConfig));
+	const server = new WebpackServer(
+		{ ...webpackDevConfig.devServer },
+		webpack(webpackDevConfig)
+	);
 	server.watchFiles(getCallerFolder());
 	server.startCallback((e) => {
 		if (e) console.error(e);
@@ -62,18 +71,31 @@ const startDev = () => {
 };
 
 const publish = async () => {
-	console.log(`Publishing the application as ${packageJson.name}:${packageJson.version}`);
+	console.log(
+		`Publishing the application as ${packageJson.name}:${packageJson.version}`
+	);
 
-	console.log(`Removing ${options.folders.build} and ${options.folders.publish} folders`);
-	await Promise.all([removeFolder(options.folders.build), removeFolder(options.folders.publish)]);
+	console.log(
+		`Removing ${options.folders.build} and ${options.folders.publish} folders`
+	);
+	await Promise.all([
+		removeFolder(options.folders.build),
+		removeFolder(options.folders.publish),
+	]);
 
 	await build();
 
 	await Promise.all([
 		copy(options.folders.build, path.resolve(options.folders.publish, "build")),
 		copy(options.folders.src, path.resolve(options.folders.publish, "src")),
-		copy(path.resolve(getCallerFolder(), "package.json"), path.resolve(options.folders.publish, "package.json")),
-		copy(path.resolve(getCallerFolder(), ".npmrc"), path.resolve(options.folders.publish, ".npmrc")),
+		copy(
+			path.resolve(getCallerFolder(), "package.json"),
+			path.resolve(options.folders.publish, "package.json")
+		),
+		copy(
+			path.resolve(getCallerFolder(), ".npmrc"),
+			path.resolve(options.folders.publish, ".npmrc")
+		),
 	]);
 
 	execSync(`npm publish`, { cwd: options.folders.publish, stdio: "inherit" });
@@ -82,6 +104,10 @@ const publish = async () => {
 yargs
 	.command("start", `Start the application on port ${options.dev.port}`, startDev)
 	.command("build", `Build the application to ${options.folders.build}`, build)
-	.command("publish", `Publish the application ${packageJson.name}:${packageJson.version}`, publish)
+	.command(
+		"publish",
+		`Publish the application ${packageJson.name}:${packageJson.version}`,
+		publish
+	)
 	.command("standalone", "Build the application as a standalone", standalone)
 	.parse();

@@ -16,6 +16,7 @@ export const webpackDevConfig = merge(baseConfig, {
 	devServer: {
 		open: true,
 		port: options.dev.port,
+		historyApiFallback: true,
 	},
 	plugins: [
 		new HtmlWebpackPlugin({

@@ -6,7 +6,6 @@ import Link from "../../common/Link";
 export const Categories = () => {
 	const categories = [
 		{
-			id: 1,
 			name: "The big round O",
 			video: "https://preprod.julien-giraud.fr/anglais/1-The-big-round-O.mp4",
 			exercices: [
@@ -25,7 +24,6 @@ export const Categories = () => {
 			],
 		},
 		{
-			id: 2,
 			name: "The non-rhotic R",
 			video: "https://preprod.julien-giraud.fr/anglais/2-The-non-rhotic-O.mp4",
 			exercices: [
@@ -50,7 +48,6 @@ export const Categories = () => {
 			],
 		},
 		{
-			id: 3,
 			name: "The A in CAT",
 			video: "https://preprod.julien-giraud.fr/anglais/3-The-A-in-cat.mp4",
 			exercices: [
@@ -67,7 +64,6 @@ export const Categories = () => {
 			],
 		},
 		{
-			id: 4,
 			name: "A T is a T",
 			video: "https://preprod.julien-giraud.fr/anglais/4-A-T-is-a-T.mp4",
 			exercices: [
@@ -80,7 +76,6 @@ export const Categories = () => {
 			],
 		},
 		{
-			id: 5,
 			name: "The long A",
 			video: "https://preprod.julien-giraud.fr/anglais/5-The-long-A-sound.mp4",
 			exercices: [
@@ -93,7 +88,6 @@ export const Categories = () => {
 			],
 		},
 		{
-			id: 6,
 			name: "The short O",
 			video: "https://preprod.julien-giraud.fr/anglais/6-The-short-O-sound.mp4",
 			exercices: [
@@ -111,11 +105,43 @@ export const Categories = () => {
 
 	return (
 		<div>
+			<p>Hello !</p>
+			<p>
+				Welcome to this new way to learn the English language.
+				<br />
+				You will be affronted to a completely different methodology of study
+				throughout this pronunciation course. <br />
+			</p>
+			<p>
+				You have maybe tried many times to improve your English pronunciation and
+				felt like anything have changed. This may happen because you have always
+				focused on “sounding more English”, to copy their way to talk and not in
+				what really matters, intonation! The English language has some
+				particularities in what concerns intonation.
+			</p>
+			<p>
+				You might have heard something called stress words, linking words,
+				spelling and other weirds thigs but you might not know what is about or
+				how to use it. However, in this case, we will show you a simple way to
+				sound more British and how to improve your English skills.
+			</p>
+			<p>
+				This course will present you six simple ways to improve your English
+				skills for making you sound more British while talking. You will watch
+				some videos, then you will make your own records with our exercises! Our
+				exercises are conceived since the prosody perception.
+			</p>
+			<p>
+				You will see a graphic in front of the audio, don’t panic! it is
+				completely normal, you will use those graphics as a guide for letting you
+				know how to better pronounce some difficult words.
+			</p>
+			<p>Let’s practice then…</p>
 			<h1>Choose what you want to improve 👇</h1>
 			<ul>
-				{categories.map((categorie) => (
-					<li key={categorie.id}>
-						<Link to={"/categorie/" + categorie.id} text={categorie.name} />
+				{categories.map((categorie, i) => (
+					<li key={i}>
+						<Link to={"/categorie/" + i} text={categorie.name} />
 					</li>
 				))}
 			</ul>

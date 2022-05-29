@@ -5,7 +5,6 @@ import Link from "../../common/Link";
 export const Categorie = () => {
 	const categories = [
 		{
-			id: 1,
 			name: "The big round O",
 			video: "https://preprod.julien-giraud.fr/anglais/1-The-big-round-O.mp4",
 			exercices: [
@@ -24,7 +23,6 @@ export const Categorie = () => {
 			],
 		},
 		{
-			id: 2,
 			name: "The non-rhotic R",
 			video: "https://preprod.julien-giraud.fr/anglais/2-The-non-rhotic-O.mp4",
 			exercices: [
@@ -49,7 +47,6 @@ export const Categorie = () => {
 			],
 		},
 		{
-			id: 3,
 			name: "The A in CAT",
 			video: "https://preprod.julien-giraud.fr/anglais/3-The-A-in-cat.mp4",
 			exercices: [
@@ -66,7 +63,6 @@ export const Categorie = () => {
 			],
 		},
 		{
-			id: 4,
 			name: "A T is a T",
 			video: "https://preprod.julien-giraud.fr/anglais/4-A-T-is-a-T.mp4",
 			exercices: [
@@ -79,7 +75,6 @@ export const Categorie = () => {
 			],
 		},
 		{
-			id: 5,
 			name: "The long A",
 			video: "https://preprod.julien-giraud.fr/anglais/5-The-long-A-sound.mp4",
 			exercices: [
@@ -92,7 +87,6 @@ export const Categorie = () => {
 			],
 		},
 		{
-			id: 6,
 			name: "The short O",
 			video: "https://preprod.julien-giraud.fr/anglais/6-The-short-O-sound.mp4",
 			exercices: [
@@ -107,7 +101,7 @@ export const Categorie = () => {
 	];
 
 	const { id } = useParams();
-	const categorie = categories.filter((c) => c.id.toString() === id)[0];
+	const categorie = categories[Number(id)];
 
 	return (
 		<div

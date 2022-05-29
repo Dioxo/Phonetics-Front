@@ -137,6 +137,24 @@ export const Categories = () => {
 				know how to better pronounce some difficult words.
 			</p>
 			<p>Let’s practice then…</p>
+
+			<p>
+				You will see that it will display an image composed of several lines that
+				will go up and down!
+				<br />
+				Don't be afraid, these little lines are there to help you.
+				<br />
+				You are going to make your recording and you will also find yourself with
+				an image with lines, so there is no need to worry. But before you start
+				recording, look at the image above the audio and pay attention to when the
+				lines go up and when the lines go down.
+				<br />
+				<br />
+				Try to copy them as you record. Try to speak louder when the line goes up
+				and lower your voice when the line goes down too. At the end of the
+				recording, you will be presented with new audio and a picture showing your
+				results! Will you be able to copy the right intonation?
+			</p>
 			<h1>Choose what you want to improve 👇</h1>
 			<ul>
 				{categories.map((categorie, i) => (

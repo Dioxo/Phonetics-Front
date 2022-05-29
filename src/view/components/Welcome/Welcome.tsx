@@ -8,7 +8,7 @@ import { useAppDispatch } from "../../../store";
 import { push } from "redux-first-history";
 
 export const Welcome = () => {
-	const [value, setValue] = React.useState(0);
+	const [value, setValue] = React.useState(-1);
 	const dispatch = useAppDispatch();
 
 	const location = useLocation();
@@ -16,10 +16,10 @@ export const Welcome = () => {
 		if (
 			(location.pathname.includes("/explanation") ||
 				location.pathname.includes("/categorie")) &&
-			value === 1
+			value !== 0
 		) {
 			setValue(0);
-		} else if (location.pathname.includes("/exercice") && value === 0) {
+		} else if (location.pathname.includes("/exercice") && value !== 1) {
 			setValue(1);
 		}
 	}, [location.pathname, value]);

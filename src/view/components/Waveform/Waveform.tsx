@@ -19,10 +19,12 @@ const Waveform = ({ audio }) => {
 				container: containerRef.current,
 			});
 
-			const blob = new Blob([audio]);
-			var URLObject = window.webkitURL || window.URL;
-			const blob_url = URLObject.createObjectURL(blob);
-			waveSurfer.load(new Audio("data:audio/mp3;base64," + audio));
+			waveSurfer.load(
+				new Audio(
+					"data:audio/mpeg;base64," +
+						audio.replace("data:text/plain;base64,", "")
+				)
+			);
 			//waveSurfer.load(audio);
 			waveSurfer.on("ready", () => {
 				waveSurferRef.current = waveSurfer;

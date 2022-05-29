@@ -6,7 +6,9 @@ import { categories } from "./Exercice.constants";
 
 export const Exercice = () => {
 	const { id } = useParams();
+	console.log({ id });
 	const categorie = categories[Number(id)];
+	console.log(categorie);
 
 	return (
 		<div>
@@ -30,7 +32,7 @@ export const Exercice = () => {
 							src={exercice.picture}
 						/>
 						<p>{exercice.caption}</p>
-						<Waveform audio={exercice.audio} />
+						<Waveform audio={exercice.audio} />{" "}
 						<AudioRecorder exerciceNumber={i} />
 					</div>
 				))}
